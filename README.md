@@ -39,5 +39,10 @@ Column 2: Identifier of the sample. In case, this sample is also used for manual
 Example file can be found in **_example/Livecells.csv_**
 
 
+# Usage 
+```
+python cyanno.py config.txt
+```
+
 
 
