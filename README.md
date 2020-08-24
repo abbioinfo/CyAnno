@@ -54,11 +54,12 @@ python cyanno.py
 
 
 # Example
+### Multi-center dataset
 The example run, which includes Multi-Center dataset can be executed via commoand line interface (provided all prerequisite libraries are installed):
 ```
 git clone https://github.com/abbioinfo/CyAnno.git
 cd CyAnno
 python CyAnno.py
 ```
-
+### PANORAMA (Samusik) dataset
 
