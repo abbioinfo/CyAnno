@@ -42,11 +42,11 @@ Example file can be found in **_example/Livecells.csv_**
 CyAnno used three different ML algorithms for building prediction models, i.e. extreme gradient boosting (XGboost), Multi-Layer Perceptron (MLP) and Support Vector Machine (SVM). For each of the ML algorithms, the hyper-parameters were optimized using random grid search with cross validation analysis, wherein the large search space was defined for different parameter options for each ML algorithm. These algorithms can be called independently or they all can be used together for predicting cell labels using an ensemble model, which combined the results of multiple base estimators and provide consensus results by majority voting approach. 
 
 # Installation
-CyAnno does not require any installation and can be executed with command line interface. However, python (3.0 or above) is required with numpy, pandas, scikit-learn, faiss, skipy, xgboost, pickle, fcsparser and itertools libraries. For convinience, we recommend anaconda for python and library installation.
+CyAnno does not require any installation and can be executed with Command Line Interface (CLI). However, python (3.0 or above) is required with numpy, pandas, scikit-learn, faiss, skipy, xgboost, pickle, fcsparser and itertools libraries. For convinience, we recommend anaconda for python and library installation.
 
 # Usage 
 
-All the required parameters and arguments, including path to the input files can be specified together in 'CyAnno.py' file.
+All the required parameters and arguments, including path to the input files can be specified together in 'CyAnno.py' file using any text editor or CLI based editor like nano or vim.
 
 ```
 python CyAnno.py
