@@ -19,9 +19,10 @@ CyAnno (*Cy*ToF *Anno*tator) is a novel semi-automated Machine Learning (ML) bas
 
 # How to run
 It essentially requires three inputs:
-1. **Training dataset**: List of FCS/CSV file, each representing a cell type(s) manually gated from clean pool of live cells (non-debris; non-doublets; e.g. using FlowJO). Atleast one FCS file per cell type is mandatory. The choice of samples before manually gating is important. We recommend the inclusion of atleast one sample from each batch or stimulation used in the study, to keep the overall training unbiased for any given batch or stimulation.
+1. **Training dataset**: List of FCS/CSV file, each representing a cell type manually gated from clean pool of live cells (non-debris; non-doublets; e.g. using FlowJO). Atleast one FCS file per cell type is mandatory. The choice of samples selected for manually gating is important. We recommend the inclusion of atleast one sample from each batch or stimulation used in the study, to keep the overall training unbiased for any given batch or stimulation.
 2. **Prediction dataset**: List of FCS/CSV file(s) that are required to be labelled. The list also includes FCS/CSV file(s) used for manual gating for building training dataset.
 3. **Lineage markers**: Marker names which were used for manually gating the given cell types.
 
-
+# Syntax
+## Training dataset 
 
