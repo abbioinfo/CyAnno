@@ -46,13 +46,11 @@ CyAnno does not require any installation and can be executed with command line i
 
 # Usage 
 
-All the required parameters and arguments, including path to the input files can be compiled together in a single 'config.txt' file for CyAnno.
+All the required parameters and arguments, including path to the input files can be specified together in 'CyAnno.py' file.
 
 ```
-python cyanno.py config.txt
+python cyanno.py
 ```
-Config.txt template can be found in **_example/config.txt_**
-
 
 
 # Example
