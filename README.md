@@ -46,7 +46,7 @@ CyAnno does not require any installation and can be executed with Command Line I
 
 # Usage 
 
-All the required parameters and arguments, including path to the input files can be specified together in 'CyAnno.py' file using any text editor or CLI based editor like nano or vim.
+All the required parameters and arguments, including path to the input files can be specified together in 'CyAnno.py' file using any text editor or CLI based editor like nano or vim. Finally, CyAnno can be executed as:
 
 ```
 python CyAnno.py
