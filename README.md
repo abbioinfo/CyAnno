@@ -40,9 +40,14 @@ Example file can be found in **_example/Livecells.csv_**
 
 
 # Usage 
+
+All the required parameters are path to the files can be compiled together in a single 'config.txt' file for CyAnno.
+
 ```
 python cyanno.py config.txt
 ```
+
+# Example
 
 
 
