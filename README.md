@@ -23,6 +23,20 @@ It essentially requires three inputs:
 2. **Prediction dataset**: List of FCS/CSV file(s) that are required to be labelled. The list also includes FCS/CSV file(s) used for manual gating for building training dataset.
 3. **Lineage markers**: Marker names which were used for manually gating the given cell types.
 
-# Syntax
 ## Training dataset 
+This is a three column csv file:
+Column 1: Path of FCS/CSV manually gated file from a live cell sample.
+Column 2: Name of the cell type. You can choose any name of the celltype. However, name must be exactly same for the FCS/CSV files representing the given cell type.
+Column 3: Identifier of the sample from which the given FCS file is manually gated out. All the cell types manually gated from a given sample will have same value of column 3. 
+Example file can be found in example/handgated.csv
+
+## Prediction dataset
+This is a two column csv file:
+Column 1: Path of FCS/CSV file which will be cell labelled by CyAnno. 
+Column 2: Identifier of the sample. In case, this sample is also used for manual gating to generate training dataset, the identifier must match with column 3 of training dataset.
+
+Example file can be found in example/Livecells.csv
+
+
+
 
