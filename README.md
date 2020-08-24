@@ -49,7 +49,7 @@ CyAnno does not require any installation and can be executed with command line i
 All the required parameters and arguments, including path to the input files can be specified together in 'CyAnno.py' file.
 
 ```
-python cyanno.py
+python CyAnno.py
 ```
 
 
