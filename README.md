@@ -5,20 +5,21 @@ The 'ungated' cells represent the undefined cells with unknown marker expression
 CyAnno (*Cy*ToF *Anno*tator) is a novel semi-automated Machine Learning (ML) based computational framework that can effectively classify live cells to one of the gated cell types. The unique approach includes a systematic way for incorporating the marker expression level features of 'ungated' cells for building an optimized ML classification model. By accounting for the ‘ungated’ class of cells in the datasets, CyAnno can predict cell labels with much higher accuracy than existing approaches.
 
 **Applications**
-1. CyAnno is especially designed to analyze large scale immunological studies to predict cell labels of closely related cell types, after manually gating only few samples.
+1. CyAnno is especially designed to analyze large scale immunological studies to predict cell labels of closely related (but mutually exclusive) cell types, after manually gating only a few samples.
 2. CyAnno performed exceptionally good in the identification rare cells or cell types which are very small in terms of population size.
 3. CyAnno can be used to train and predict even a single cell type, irrespective of its population size. The other algorithms typically require multiples classes (i.e. cell types) for training the model. This unique feature of CyAnno can be useful for a broad range of studies; e.g. when only one (or few) cell types are of clinical interest, especially those rare cell types that cannot be clustered with unsupervised clustering. 
 4. CyAnno performed better in cell label prediction of 'gated' cell type even in the datasets with more than 20 cell types, including closely related cell types. 
 
-**Other Considerations**
-1. CyAnno is _not_ an alterative of unsupervised clustering, rather it learns the features of manually gated cell types from few samples and predicts the similar cells from the pool of live cells using FCS file(s).
-2. The prediction accuracy of the algorithm may depend upon the choice of training set, and we recommend the inclusion of samples processed under different batches or stimulation for training the models, to keep the overall training unbiased for any given batch or stimulation. 
-3. CyAnno prediction accuracy has not been tested on samples with strong stimulation that can lead to aberrant marker expression profile.
-4. Other factor that can affect the prediction accuracy includes the ambiguity in marker expression profile of different cell types.
+**Other important considerations**
+1. CyAnno is _not_ an alterative of unsupervised clustering, rather it learns the features of manually gated and mutually exclusive cell types from few samples and predicts the similar cells from the pool of live cells using FCS file(s).
+2. Cell types must be mutually exclusive and both parent and child gated cell types can be used togther for cell type prediction.
+3. The prediction accuracy of the algorithm may depend upon the choice of training set, and we recommend the inclusion of samples processed under different batches or stimulation for training the models, to keep the overall training unbiased for any given batch or stimulation. 
+4. CyAnno prediction accuracy has not been tested on samples with strong stimulation that can lead to aberrant marker expression profile.
+5. Other factor that can affect the prediction accuracy includes the ambiguity in marker expression profile of different cell types.
 
 # How to run
 It essentially requires three inputs:
-1. **Training dataset**: List of FCS/CSV file manually gated cell type(s) from clean pool of live cells (non-debris; non-doublets; e.g. using FlowJO). Atleast one FCS file per cell type is mandatory. The choice of samples before manually gating is important. We recommend the inclusion of atleast one sample from each batch or stimulation used in the study, to keep the overall training unbiased for any given batch or stimulation.
+1. **Training dataset**: List of FCS/CSV file, each representing a cell type(s) manually gated from clean pool of live cells (non-debris; non-doublets; e.g. using FlowJO). Atleast one FCS file per cell type is mandatory. The choice of samples before manually gating is important. We recommend the inclusion of atleast one sample from each batch or stimulation used in the study, to keep the overall training unbiased for any given batch or stimulation.
 2. **Prediction dataset**: List of FCS/CSV file(s) that are required to be labelled. The list also includes FCS/CSV file(s) used for manual gating for building training dataset.
 3. **Lineage markers**: Marker names which were used for manually gating the given cell types.
 
