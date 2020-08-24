@@ -28,6 +28,7 @@ This is a three column csv file:
 Column 1: Path of FCS/CSV manually gated file from a live cell sample.
 Column 2: Name of the cell type. You can choose any name of the celltype. However, name must be exactly same for the FCS/CSV files representing the given cell type.
 Column 3: Identifier of the sample from which the given FCS file is manually gated out. All the cell types manually gated from a given sample will have same value of column 3. 
+
 Example file can be found in example/handgated.csv
 
 ## Prediction dataset
