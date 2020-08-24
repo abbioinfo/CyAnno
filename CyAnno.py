@@ -13,7 +13,7 @@ outdir = 'MultCent' 								## This is the name of output directory; where the C
 
 ######### Optional #######
 threads = 20 			## (Int) number of available threads to use; -1 if all available threads are mant to be used
-method = 'e' 			## e= ensemble (XGboost+MLP+SVM) ; x = XGboost ; m=Multi-layer-perceptron ; l = multi-LDA; b = best model from x/m/l for each cell type (may use diffferent model for different cell type )
+method = 'x' 			## e= ensemble (XGboost+MLP+SVM) ; x = XGboost ; m=Multi-layer-perceptron ; l = multi-LDA; b = best model from x/m/l for each cell type (may use diffferent model for different cell type )
 loadModel = False		## When you are using previously generated model you need to change this to 'True' and in the next parameter set the path of the CyAnno generated output folder.
 postProbThresh=0.5 		## [0.0 to 1.0] Posterior Prob. threshold; if mLDA method is used then the recommended value is 0.4 else the default 0.5 should be good enough; for higher stringency increase this threshold with 1.0 is maximum
 Findungated = True		## Logical; if True then 'ungated' cells will be predicted. However, orignal sample ID (live cells) must be present in LiveFileinfo. 'ungated' cells are defined as all the cells that not the part of any of 'gated' cell population.
