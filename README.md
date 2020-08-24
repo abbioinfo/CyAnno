@@ -54,9 +54,9 @@ python cyanno.py
 
 
 # Example
-The example run, which includes Multi-Center dataset can be executed via commoand line interface as (provided all prerequisite libraries are installed):
+The example run, which includes Multi-Center dataset can be executed via commoand line interface (provided all prerequisite libraries are installed):
 ```
-git clone 
+git clone https://github.com/abbioinfo/CyAnno.git
 cd CyAnno
 python CyAnno.py
 ```
