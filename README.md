@@ -38,7 +38,7 @@ Column 2: Identifier of the sample. In case, this sample is also used for manual
 
 Example file can be found in **_example/Livecells.csv_**
 
-## Methods
+### Methods
 CyAnno used three different ML algorithms for building prediction models, i.e. extreme gradient boosting (XGboost), Multi-Layer Perceptron (MLP) and Support Vector Machine (SVM). For each of the ML algorithms, the hyper-parameters were optimized using random grid search with cross validation analysis, wherein the large search space was defined for different parameter options for each ML algorithm. These algorithms can be called independently or they all can be used together for predicting cell labels using an ensemble model, which combined the results of multiple base estimators and provide consensus results by majority voting approach. 
 
 # Installation
@@ -61,5 +61,4 @@ git clone https://github.com/abbioinfo/CyAnno.git
 cd CyAnno
 python CyAnno.py
 ```
-### PANORAMA (Samusik) dataset
 
