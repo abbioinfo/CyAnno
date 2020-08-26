@@ -1694,8 +1694,16 @@ def e2b(Fileinfo,relevantMarkers,nlandMarks,LandmarkPlots,plotlogLoss,threads,me
         else:
             print(str("*** Error ***: Line: " + str(c) + " or " + str(f) + "- Unknown File !!!"))
             exit
-        if output.shape[0] > 0:
-            name = str(ProjectName) + "/Method_" + str(method) + "_" + str("_Acc_stats.csv")
-            output.to_csv(name)
-            name = str(ProjectName) + "/Method_" + str(method) + "_" + str("_Posterior_Probability_Prediction_Result.csv")
-            PostProbCT.to_csv(name)
+    if output.shape[0] > 0:
+        name = str(ProjectName) + "/Method_" + str(method) + "_" + str("_Acc_stats.csv")
+        output.to_csv(name)
+        name = str(ProjectName) + "/Method_" + str(method) + "_" + str("_Posterior_Probability_Prediction_Result.csv")
+        PostProbCT.to_csv(name)
+        evalreport = output.loc[:,['SampleID','SampleF1','Sampleprecision','SampleRecall', 'Type']]
+        evalreport = evalreport.drop_duplicates()
+        sns.set(style="white")
+        ax = sns.boxplot(x='Type', y='SampleF1', data=evalreport)
+        ax = sns.swarmplot(x='Type', y='SampleF1', data=evalreport, color=".25", size=14, hue='SampleID', palette="muted")
+        ax.set_title('Prediction Accuracy')
+        plt.savefig(str(ProjectName)+'/accuracyReportF1.png')
+        print('Accuracy plots saved in output directory')
