@@ -1532,14 +1532,15 @@ def CelltypePredPerSample(expr,SelfObject,relevantMarkers,indx2ct,origLabels,Unk
         df = pa.DataFrame({'SampleID': sampleID, 'CellTypeOrignal': origLabels.values.tolist(), 'CellTypePredicted': predictedLabels,
                            'PosteriorProb': maxPostProb})
         #### Excluding Unknown cells from these dataset ###
-        predictedLabels = list(compress(predictedLabels, origLabels != "Unknown"))
-        origLabels = origLabels[origLabels != "Unknown"]
-        F1= f1_score(origLabels,predictedLabels,average="weighted")
-        precision = precision_score(origLabels,predictedLabels, average='micro')
-        recall = recall_score(origLabels,predictedLabels, average='micro')
-        result2 = printACC(indx2ct, origLabels, predictedLabels, sampleID, F1, precision, recall, "Without_UnGated")
+        predictedLabels2 = list(compress(predictedLabels, origLabels != "Unknown"))
+        origLabels2 = origLabels[origLabels != "Unknown"]
+        F1= f1_score(origLabels2,predictedLabels2,average="weighted")
+        precision = precision_score(origLabels2,predictedLabels2, average='micro')
+        recall = recall_score(origLabels2,predictedLabels2, average='micro')
+        result2 = printACC(indx2ct, origLabels2, predictedLabels2, sampleID, F1, precision, recall, "Without_UnGated")
         result = pa.concat([result,result2], axis=0)
         annotatedExpression = pa.concat([expr, pa.DataFrame(predictedLabels, columns=["labels"], index=expr.index), pa.DataFrame(origLabels.values, columns=["Truelabels"], index=expr.index)], axis=1)
+        len(predictedLabels)
         name = str(ProjectName) + "/" + str(sampleID) + '_labled_expr.csv'
         print("Writing file.." + name)
         annotatedExpression.to_csv(name)  ## write best cell type predicted for this sample
