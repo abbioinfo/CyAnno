@@ -45,7 +45,9 @@ if not loadModel: ## if you are not loading previously build model from ProjectN
     os.makedirs(ProjectName)
     train = method0(handgatedFileinfo,filterCells,relevantMarkers,cellCount,header, index_col, Findungated,ProjectName,LiveFileinfo)
     method1(LiveFileinfo,normalizeCell,relevantMarkers,'infer',index_col, Findungated, train,ProjectName,cofactor) ##
-
+else:
+	ProjectName = outdir
+	
 e2b(Fileinfo=LiveFileinfo,
             relevantMarkers=relevantMarkers,
             nlandMarks=nlandMarks,
