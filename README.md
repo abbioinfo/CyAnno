@@ -32,7 +32,8 @@ It essentially requires three inputs:
 ### Training dataset 
 CyAnno requires two files training the models:
 1. [Hand-gated]
-This is a three column csv file:
+List of FCS/CSV file containig the marker expression profile of each handgated cell from each training sample. This is a three column csv file:
+
 Column 1: Path of FCS/CSV manually gated file from a live cell sample.
 
 Column 2: Name of the cell type. You can choose any name of the celltype. However, name must be exactly same for the FCS/CSV files representing the given cell type.
@@ -42,7 +43,7 @@ Column 3: Identifier of the sample from which the given FCS file is manually gat
 Example file can be found in **_example/handgated.csv_**
 
 2. [All live cells]
-This contains the list of CSV/FCS files which were used for manual gating. It contains only the live cells (non-debris; no dublets). This is a two column csv file:
+This contains the list of CSV/FCS files which were used for manual gating, i.e. training samples. It contains only the live cells (non-debris; no dublets). This is a two column csv file:
 
 Column 1: Path of FCS/CSV file with live cells (non-debris; non-doublets) which will be cell labelled by CyAnno.
 
