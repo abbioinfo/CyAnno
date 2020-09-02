@@ -12,7 +12,6 @@ import warnings
 from random import *
 import itertools
 import fcsparser
-import umap
 import faiss
 import pickle
 import joblib
@@ -224,7 +223,7 @@ def method1(Fileinfo,normalizeCell,relevantMarkers,header,ic,ungated,train,Proje
     inputs = md.iloc[:,0]
     sample_ids = md.iloc[:,1]
     if ungated is True and len(train.l) > 0: ##Check if PIDs are non-zeros, i.e. there are sample IDs that are required to be scanned for ungated cellsn
-        fnd = list(set(list(train.l)) & set(list(sample_id))) ## check if 
+        fnd = list(set(list(train.l)) & set(list(sample_ids))) ## check if
         if len(fnd) != len(train.l): ## check if all of these samples exists as live cells 
             notfound = list(set(train.l) - set(fnd)) ## some or all samplesIDs do not have live ungated datasets available. find their sampleIDs 
             print("Error!!! The live cells belonging to these sampleIDs: " + str(notfound) + " not found. These samples are required for finding their ungated cell population. Either set ungated=False or read manual")
@@ -235,7 +234,7 @@ def method1(Fileinfo,normalizeCell,relevantMarkers,header,ic,ungated,train,Proje
         if os.path.exists(f):
             match = re.search(r'fcs$', f)
             match2 = re.search(r'csv$', f)
-            key=md.loc[c,"sample_id"] #+ "_" + str(counter) ## sampleID
+            key=md.iloc[c,1] #+ "_" + str(counter) ## sampleID
             if match: ## if file is FCS
                 panel, exp = fcsparser.parse(f, reformat_meta=True)
                 desc = panel['_channels_']['$PnS'] ## marker name instead of meta name
@@ -1532,13 +1531,13 @@ def CelltypePredPerSample(expr,SelfObject,relevantMarkers,indx2ct,origLabels,Unk
         df = pa.DataFrame({'SampleID': sampleID, 'CellTypeOrignal': origLabels.values.tolist(), 'CellTypePredicted': predictedLabels,
                            'PosteriorProb': maxPostProb})
         #### Excluding Unknown cells from these dataset ###
-        predictedLabels2 = list(compress(predictedLabels, origLabels != "Unknown"))
-        origLabels2 = origLabels[origLabels != "Unknown"]
-        F1= f1_score(origLabels2,predictedLabels2,average="weighted")
-        precision = precision_score(origLabels2,predictedLabels2, average='micro')
-        recall = recall_score(origLabels2,predictedLabels2, average='micro')
-        result2 = printACC(indx2ct, origLabels2, predictedLabels2, sampleID, F1, precision, recall, "Without_UnGated")
-        result = pa.concat([result,result2], axis=0)
+        #predictedLabels2 = list(compress(predictedLabels, origLabels != "Unknown"))
+        #origLabels2 = origLabels[origLabels != "Unknown"]
+        #F1= f1_score(origLabels2,predictedLabels2,average="weighted")
+        #precision = precision_score(origLabels2,predictedLabels2, average='micro')
+        #recall = recall_score(origLabels2,predictedLabels2, average='micro')
+        #result2 = printACC(indx2ct, origLabels2, predictedLabels2, sampleID, F1, precision, recall, "Without_UnGated")
+        #result = pa.concat([result,result2], axis=0)
         annotatedExpression = pa.concat([expr, pa.DataFrame(predictedLabels, columns=["labels"], index=expr.index), pa.DataFrame(origLabels.values, columns=["Truelabels"], index=expr.index)], axis=1)
         len(predictedLabels)
         name = str(ProjectName) + "/" + str(sampleID) + '_labled_expr.csv'
@@ -1658,7 +1657,7 @@ def e2b(Fileinfo,relevantMarkers,nlandMarks,LandmarkPlots,plotlogLoss,threads,me
         UnkKey =  SelfObject.o
         method = SelfObject.q
     print('annotating sample')
-    md = pa.read_csv(Fileinfo,header=0)
+    md = pa.read_csv(Fileinfo,header=header)
     md.index = list(range(md.shape[0]))
     inputs = md.iloc[:,0]
     print ("Reading live cells for annotation...")
