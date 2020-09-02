@@ -17,7 +17,7 @@ CyAnno (*Cy*ToF *Anno*tator) is a novel semi-automated Machine Learning (ML) bas
 4. CyAnno prediction accuracy has not been tested on samples with strong stimulation that can lead to aberrant marker expression profile.
 5. Other factor that can affect the prediction accuracy includes the ambiguity in marker expression profile of different cell types.
 
-# How to run
+# Inputs
 It essentially requires three inputs:
 1. **Training dataset**: 
   
