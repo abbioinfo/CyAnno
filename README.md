@@ -30,7 +30,7 @@ It essentially requires three inputs:
 3. **Lineage markers**: Marker names which were used for manually gating the given cell types.
 
 ### Training dataset 
-CyAnno requires two files training the models:
+CyAnno requires two files for training the models:
 1. [Hand-gated]
 List of FCS/CSV file containig the marker expression profile of each handgated cell from each training sample. This is a three column csv file:
 
