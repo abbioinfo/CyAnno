@@ -37,7 +37,7 @@ LandmarkPlots = False	## scatter plots that shows where are high density cells ;
 ########################### Do Not Edit ######################################
 ##############################################################################
 plotlogLoss = False
-ProjectName = outdir.copy()
+ProjectName = outdir
 train = None ## when loadmodel = True then obviously you dont need train object again ; all the models will be loaded as selfobject later on in the script 
 if not loadModel: ## if you are not loading previously build model from ProjectName
     DateTime= datetime.datetime.now()
