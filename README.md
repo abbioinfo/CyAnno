@@ -38,7 +38,7 @@ Column 1: Path of FCS/CSV manually gated file from a live cell sample.
 
 Column 2: Name of the cell type. You can choose any name of the celltype. However, name must be exactly same for the FCS/CSV files representing the given cell type.
 
-Column 3: Identifier of the sample from which the given FCS file is manually gated out. All the cell types manually gated from a given sample will have same value of column 3. 
+Column 3: Identifier of the training sample from which the given FCS file is manually gated. All the cell types manually gated from a given sample will have same value of column 3. 
 
 Example file can be found in **_example/handgated.csv_**
 
@@ -47,7 +47,7 @@ This contains the list of CSV/FCS files which were used for manual gating, i.e. 
 
 Column 1: Path of FCS/CSV file with live cells (non-debris; non-doublets) which will be cell labelled by CyAnno.
 
-Column 2: Identifier of the sample. In case, this sample is also used for manual gating to generate training dataset, the identifier must match with column 3 of training dataset.
+Column 2: Identifier of the training sample. In case, this sample is also used for manual gating to generate training dataset, the identifier must match with column 3 of training dataset.
 
 Example file can be found in **_example/LivecellsTraining.csv.csv_**
 
