@@ -56,7 +56,7 @@ This contains the list of CSV/FCS files in which every cell has to be annotated.
 
 Column 1: Path of FCS/CSV file with live cells (non-debris; non-doublets) which will be cell labelled by CyAnno.
 
-Column 2: Identifier of the sample. In case, this sample is also used for manual gating to generate training dataset, the identifier must match with column 3 of training dataset.
+Column 2: Identifier of the sample. This Identifier can be any unique name assigned to each sample. Output labelled file will be written with this identifier used.
 
 Example file can be found in **_example/Livecells.csv_**
 
