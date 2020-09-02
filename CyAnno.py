@@ -37,6 +37,7 @@ LandmarkPlots = False	## scatter plots that shows where are high density cells ;
 ########################### Do Not Edit ######################################
 ##############################################################################
 plotlogLoss = False
+ProjectName = outdir.copy()
 train = None ## when loadmodel = True then obviously you dont need train object again ; all the models will be loaded as selfobject later on in the script 
 if not loadModel: ## if you are not loading previously build model from ProjectName
     DateTime= datetime.datetime.now()
@@ -45,8 +46,6 @@ if not loadModel: ## if you are not loading previously build model from ProjectN
     os.makedirs(ProjectName)
     train = method0(handgatedFileinfo,filterCells,relevantMarkers,cellCount,header, index_col, Findungated,ProjectName,LiveFileinfo)
     method1(LiveFileinfo,normalizeCell,relevantMarkers,'infer',index_col, Findungated, train,ProjectName,cofactor) ##
-else:
-	ProjectName = outdir
 	
 e2b(Fileinfo=LiveFileinfo,
             relevantMarkers=relevantMarkers,
