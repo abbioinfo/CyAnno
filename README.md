@@ -21,17 +21,18 @@ CyAnno (*Cy*ToF *Anno*tator) is a novel semi-automated Machine Learning (ML) bas
 It essentially requires three inputs:
 1. **Training dataset**: 
   
-  a.) List of FCS/CSV file(s), each representing a cell type manually gated from clean pool of live cells (non-debris; non-doublets). At least one FCS file per cell type is mandatory. The choice of samples selected for manually gating is important. We recommend the inclusion of atleast one sample from each batch or stimulation used in the study, to keep the overall training unbiased for any given batch or stimulation.
+  a.) [Hand-gated] List of FCS/CSV file(s), each representing a cell type manually gated from clean pool of live cells (non-debris; non-doublets). At least one FCS file per cell type is mandatory. The choice of samples selected for manually gating is important. We recommend the inclusion of atleast one sample from each batch or stimulation used in the study, to keep the overall training unbiased for any given batch or stimulation.
   
-  b.) (optional only with Findungated=False) List of orignal FCS/CSV file(s) with all the live cells that were used for manual gating the cell types. The algorithm uses these cells to find out cells not the part of any of the gated cell type, i.e. 'ungated' cells (only if Findungated=True).
+  b.) [All live cells] List of orignal FCS/CSV file(s) with all the live cells that were used for manual gating the cell types. The algorithm uses these cells to find out cells not the part of any of the gated cell type, i.e. 'ungated' cells (only if Findungated=True).
   
 2. **Unlabelled dataset**: List of FCS/CSV file(s) that are required to be labelled. These are the CyTOF samples (clean live cells: non-debris; non-doublets etc) for which you need to predict cell labels from one of the gated cell types.
 
 3. **Lineage markers**: Marker names which were used for manually gating the given cell types.
 
 ### Training dataset 
+CyAnno requires two files training the models:
+1. [Hand-gated]
 This is a three column csv file:
-
 Column 1: Path of FCS/CSV manually gated file from a live cell sample.
 
 Column 2: Name of the cell type. You can choose any name of the celltype. However, name must be exactly same for the FCS/CSV files representing the given cell type.
@@ -40,8 +41,17 @@ Column 3: Identifier of the sample from which the given FCS file is manually gat
 
 Example file can be found in **_example/handgated.csv_**
 
+2. [All live cells]
+This contains the list of CSV/FCS files which were used for manual gating. It contains only the live cells (non-debris; no dublets). This is a two column csv file:
+
+Column 1: Path of FCS/CSV file with live cells (non-debris; non-doublets) which will be cell labelled by CyAnno.
+
+Column 2: Identifier of the sample. In case, this sample is also used for manual gating to generate training dataset, the identifier must match with column 3 of training dataset.
+
+Example file can be found in **_example/LivecellsTraining.csv.csv_**
+
 ### Unlabelled dataset
-This is a two column csv file:
+This contains the list of CSV/FCS files in which every cell has to be annotated. The format is same as [All live cells]. This is a two column csv file:
 
 Column 1: Path of FCS/CSV file with live cells (non-debris; non-doublets) which will be cell labelled by CyAnno.
 
