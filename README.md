@@ -84,3 +84,7 @@ cd CyAnno
 python CyAnno.py
 ```
 
+### Samusik dataset
+The following project allows you to download and process the Samusik dataset (10 samples) from Public domain in a format required by CyAnno. Total three training samples were used and cell label prediction is performed on remaining seven samples.
+https://github.com/abbioinfo/CyAnnoSamusik
+
