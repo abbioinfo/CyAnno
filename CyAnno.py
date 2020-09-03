@@ -5,10 +5,12 @@ A tool to predict cell labels of closely related (but mutually exclusive) cell t
 '''
 
 ##### Mandatory ######
-LiveFileinfo= 'example/Livecells.csv'    		    ## Mandatory Live cells to be tested for annotation
-handgatedFileinfo='example/Handgated.csv' 			## Mandatory hand-gated cells to be used for training
-relevantMarkers = ["0","1","2","3","4","5","6","7"] ## lineage markers used for hand-gated
-outdir = 'MultCent' 								## This is the name of output directory; where the CyAnno model and session will be saved. These models and files (when executed successfully) can later be used with loadModel=True
+handgatedFileinfo='example/Handgated.csv' 			## [Mandatory] hand-gated cells to be used for training
+LiveFileinfo= 'example/LivecellsTraining.csv'    	## [Mandatory] All Live cells of the samples used for handgating (i.e. training); these samples will also be labelled
+unlabelledDataset= 'example/Livecells.csv'    		## [Mandatory] All Live cells to be tested for annotation, i.e. for cell type identification
+relevantMarkers = ["0","1","2","3","4","5","6","7"] ## [Mandatory] lineage markers used for hand-gated; based on column names in FCS/CSV file  
+outdir = 'MultCent' 		
+
 
 
 ######### Optional #######
@@ -23,10 +25,10 @@ Findungated = True		## Logical; if True then 'ungated' cells will be predicted. 
 						## [True] if you have not included ungated population for any of the sample_id and want to include ungated population in the classification, set it to True
 normalizeCell=True 		## Logical; if yes arcsine transformation with cofactor will we used to normalize both the handgated and unlabelled cell expression files.
 cofactor=5.0 			## valid only when normalizecell == True; this is the cofactor for arcsin transformation of raw expression values 
-header = 'infer' 		## 'infer' or 'None' ; does the input csv files (LiveFileinfo and handgatedFileinfo) contain header. infer means 'yes' otherwise its None
+header = 'infer' 		## 'infer' or 'None' ; does all the input csv files (LiveFileinfo, unlabelledDataset and handgatedFileinfo) contain header. infer means 'yes' otherwise its None
 nlandMarks = 10 		## number of landmarks cells you need from each cell type. [feault 10] good enough for most studies; higher values means nore neighbouring cells; improves training but reduce execution speed 
 cellCount = 20			## Minimum number of cells that should be present in the entire training dataset.
-index_col = False 		## [For CSV only] rownames in Marker expression csv file to be considered or not ; 0 means first column to use for rowname else use False; if you known that first column is marker expression value then set this to False
+index_col = False 		## [For CSV only; False or 0] rownames in Marker expression csv file to be considered or not ; 0 means first column to use for rowname else use False; if you known that first column is marker expression value then set this to False
 calcPvalue = False 		## [True/False] [Slow] if you want to calculate p-value of F1 score by randonly permuting the cell labels and rechecking F1 score by comparing with orignal F1 score over 1000 interations  
 LandmarkPlots = False	## scatter plots that shows where are high density cells ; estimated using kernel density estimation; only for developers and for debugging.
 
@@ -47,7 +49,7 @@ if not loadModel: ## if you are not loading previously build model from ProjectN
     train = method0(handgatedFileinfo,filterCells,relevantMarkers,cellCount,header, index_col, Findungated,ProjectName,LiveFileinfo)
     method1(LiveFileinfo,normalizeCell,relevantMarkers,'infer',index_col, Findungated, train,ProjectName,cofactor) ##
 	
-e2b(Fileinfo=LiveFileinfo,
+e2b(Fileinfo=unlabelledDataset,
             relevantMarkers=relevantMarkers,
             nlandMarks=nlandMarks,
             LandmarkPlots=LandmarkPlots,
