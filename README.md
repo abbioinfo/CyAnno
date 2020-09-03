@@ -95,3 +95,12 @@ python CyAnno.py
 ```
 Details can be found [here](https://github.com/abbioinfo/CyAnnoSamusik)
 
+# Cite
+If you use CyAnno for your research. Please [cite](https://www.biorxiv.org/content/10.1101/2020.08.28.272559v1)
+
+```
+CyAnno: A semi-automated approach for cell type annotation of mass cytometry datasets
+Abhinav Kaushik, Diane Dunham, Ziyuan He, Monali Manohar, Manisha Desai, Kari C Nadeau, Sandra Andorf
+
+bioRxiv 2020.08.28.272559; doi: https://doi.org/10.1101/2020.08.28.272559 
+```
