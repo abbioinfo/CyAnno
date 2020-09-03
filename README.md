@@ -49,7 +49,7 @@ Column 1: Path of FCS/CSV file with live cells (non-debris; non-doublets) which 
 
 Column 2: Identifier of the training sample. In case, this sample is also used for manual gating to generate training dataset, the identifier must match with column 3 of training dataset.
 
-Example file can be found in **_example/LivecellsTraining.csv.csv_**
+Example file can be found in **_example/LivecellsTraining.csv_**
 
 ### Unlabelled dataset
 This contains the list of CSV/FCS files in which every cell has to be annotated. The format is same as [All live cells]. This is a two column csv file:
