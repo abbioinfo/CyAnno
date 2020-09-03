@@ -90,7 +90,8 @@ The following project allows you to download and process the Samusik dataset (10
 ```
 git clone https://github.com/abbioinfo/CyAnnoSamusik.git
 cd CyAnnoSamusik
+Rscript Process.R
 python CyAnno.py
 ```
-Deatils can be found [here](https://github.com/abbioinfo/CyAnnoSamusik)
+Details can be found [here](https://github.com/abbioinfo/CyAnnoSamusik)
 
