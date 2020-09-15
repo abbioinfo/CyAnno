@@ -21,9 +21,9 @@ CyAnno (*Cy*ToF *Anno*tator) is a novel semi-automated Machine Learning (ML) bas
 It essentially requires three inputs:
 1. **Training dataset**: 
   
-  a.) **[Hand-gated]** List of FCS/CSV file(s), each representing a cell type manually gated from clean pool of live cells (non-debris; non-doublets). At least one FCS file per cell type is mandatory. The choice of samples selected for manually gating is important. We recommend the inclusion of at least one sample from each batch or stimulation used in the study, to keep the overall training unbiased for any given batch or stimulation.
+      a.) **[Hand-gated]** List of FCS/CSV file(s), each representing a cell type manually gated from clean pool of live cells (non-debris; non-doublets). At least one FCS file per cell type is mandatory. The choice of samples selected for manually gating is important. We recommend the inclusion of at least one sample from each batch or stimulation used in the study, to keep the overall training unbiased for any given batch or stimulation.
   
-  b.) **[All live cells]** List of orignal FCS/CSV file(s) with all the live cells that were used for manual gating the cell types. The algorithm uses these cells to find out cells that are not  part of any of the gated cell type, i.e. 'ungated' cells (only if Findungated=True).
+      b.) **[All live cells]** List of orignal FCS/CSV file(s) with all the live cells that were used for manual gating the cell types. The algorithm uses these cells to find out cells that are not  part of any of the gated cell type, i.e. 'ungated' cells (only if Findungated=True).
   
 2. **Unlabelled dataset**: List of FCS/CSV file(s) that are required to be labelled. These are the CyTOF samples (clean live cells: non-debris; non-doublets etc) for which you need to predict cell labels from one of the gated cell types.
 
