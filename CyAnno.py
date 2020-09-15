@@ -9,12 +9,12 @@ handgatedFileinfo='example/Handgated.csv' 			## [Mandatory] hand-gated cells to 
 LiveFileinfo= 'example/LivecellsTraining.csv'    	## [Mandatory] All Live cells of the samples used for handgating (i.e. training); these samples will also be labelled
 unlabelledDataset= 'example/Livecells.csv'    		## [Mandatory] All Live cells to be tested for annotation, i.e. for cell type identification
 relevantMarkers = ["0","1","2","3","4","5","6","7"] ## [Mandatory] lineage markers used for hand-gated; based on column names in FCS/CSV file  
-outdir = 'MultCent' 		
-
+outdir = 'MultCent' 				## [Mandatory] any name of choice. If directory will hold saved session and labelled CSV file.	
+loadSession = '' 	## [optional; valid only when loadModel=True]  if user wants to reuse the previously built models/training then, put the name of directory having all the session files.
 
 
 ######### Optional #######
-threads = 20 			## (Int) number of available threads to use; -1 if all available threads are mant to be used
+threads = 20 			## (Int) number of available threads to use; -1 if all available threads are to be used
 method = 'x' 			## e= ensemble (XGboost+MLP+SVM) ; x = XGboost ; m=Multi-layer-perceptron ; l = multi-LDA; b = best model from x/m/l for each cell type (may use diffferent model for different cell type )
 loadModel = False		## When you are using previously generated model you need to change this to 'True' and in the next parameter set the path of the CyAnno generated output folder.
 postProbThresh=0.5 		## [0.0 to 1.0] Posterior Prob. threshold; if mLDA method is used then the recommended value is 0.4 else the default 0.5 should be good enough; for higher stringency increase this threshold with 1.0 is maximum
@@ -39,16 +39,18 @@ LandmarkPlots = False	## scatter plots that shows where are high density cells ;
 ########################### Do Not Edit ######################################
 ##############################################################################
 plotlogLoss = False
-ProjectName = outdir
 train = None ## when loadmodel = True then obviously you dont need train object again ; all the models will be loaded as selfobject later on in the script 
 if not loadModel: ## if you are not loading previously build model from ProjectName
+    ProjectName = outdir
     DateTime= datetime.datetime.now()
     ProjectName = outdir + str("_") + str(DateTime.day) + str('_') + str(DateTime.month) + str('_') + str(DateTime.year) + str('_') + str(DateTime.hour) + str('_') + str(DateTime.second)
     print("Creating new directory name..." + ProjectName)
     os.makedirs(ProjectName)
     train = method0(handgatedFileinfo,filterCells,relevantMarkers,cellCount,header, index_col, Findungated,ProjectName,LiveFileinfo)
     method1(LiveFileinfo,normalizeCell,relevantMarkers,'infer',index_col, Findungated, train,ProjectName,cofactor) ##
-	
+else:
+    ProjectName = loadSession
+
 e2b(Fileinfo=unlabelledDataset,
             relevantMarkers=relevantMarkers,
             nlandMarks=nlandMarks,
