@@ -62,7 +62,7 @@ CyAnno uses three inputs:
 	This is a two column CSV file in which:
 			column1: It contains path of live cell CSV/FCS file used for handgating.
 			column2: Identifier of the sample. This identifier must match with identifier used in column3 of File 1 (Handgated celltype).
-
+Note: From each training sample, all the given cell types must be hand-gated.
 
 ~Unlabelled data: Unlablled Live cells. This contains all the FCS/CSV files which are needed to be labelled.
 This is a two column CSV file in which:
