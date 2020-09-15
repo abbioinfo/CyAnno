@@ -31,8 +31,8 @@ It essentially requires three inputs:
 
 ### Training dataset 
 CyAnno requires two files for training the models:
-1. [Hand-gated]
-List of FCS/CSV file containig the marker expression profile of each handgated cell from each training sample. This is a three column csv file:
+1. **[Hand-gated]**
+Table of FCS/CSV file containig the marker expression profile of each handgated cell from each training sample. This is a three column csv file:
 
 Column 1: Path of FCS/CSV manually gated file from a live cell sample.
 
@@ -42,8 +42,8 @@ Column 3: Identifier of the training sample from which the given FCS file is man
 
 Example file can be found in **_example/handgated.csv_**
 
-2. [All live cells]
-This contains the list of CSV/FCS files which were used for manual gating, i.e. training samples. It contains only the live cells (non-debris; no dublets). This is a two column csv file:
+2. **[All live cells]**
+This contains the table of CSV/FCS files which were used for manual gating, i.e. training samples. It contains only the live cells (non-debris; no dublets). This is a two column csv file:
 
 Column 1: Path of FCS/CSV file with live cells (non-debris; non-doublets).
 
@@ -63,7 +63,7 @@ Example file can be found in **_example/Livecells.csv_**
 ### Methods
 CyAnno uses three different ML algorithms for building prediction models, i.e. extreme gradient boosting (XGboost; fastest), Multi-Layer Perceptron (MLP; slow) and Support Vector Machine (SVM; very slow). For each of the ML algorithms, the hyper-parameters are optimized using random grid search with cross validation analysis, wherein the large search space are defined for different parameter options for each ML algorithm. These algorithms can be called independently or they all can be used together for predicting cell labels using an ensemble model (very slow but less likely to build overfit model), which combined the results of multiple base estimators and provide consensus results by majority voting approach. 
 
-# Installation
+# Installation and dependencies
 CyAnno does not require any installation and can be executed with Command Line Interface (CLI). However, python (3.0 or above) is required with numpy, pandas, scikit-learn, [faiss](https://github.com/facebookresearch/faiss/blob/master/INSTALL.md "CPU version") (CPU version), scipy, [xgboost](https://anaconda.org/conda-forge/xgboost), [pickle](https://docs.python.org/3/library/pickle.html), [fcsparser](https://github.com/eyurtsev/fcsparser) and itertools libraries. For convinience, we recommend [anaconda](https://anaconda.org/anaconda/python) for python and library installation, as it comes with most of the libraries preloaded. 
 
 # Usage 
