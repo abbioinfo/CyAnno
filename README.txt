@@ -131,17 +131,17 @@ loadSession = '' 					## [optional; valid only when loadModel=True] if user want
 
 
 ######### Optional #######
-threads = 20 	## (Int) number of available threads to use; set it to -1 if all available threads are to be used
+threads = 20 			## (Int) number of available threads to use; set it to -1 if all available threads are to be used
 
-method = 'x'  ## e= ensemble (XGboost+MLP+SVM) ; x = XGboost ; m=Multi-layer-perceptron ; l = multi-LDA; b = best model from x/m/l for each cell type (may use diffferent model for different cell type )
+method = 'x'  			## e= ensemble (XGboost+MLP+SVM) ; x = XGboost ; m=Multi-layer-perceptron ; l = multi-LDA; b = best model from x/m/l for each cell type (may use diffferent model for different cell type )
 
-loadModel = False  ## When you are using previously generated model you need to change this to 'True' and in the next parameter set the path of the CyAnno generated output folder.
+loadModel = False  		## When you are using previously generated model you need to change this to 'True' and in the next parameter set the path of the CyAnno generated output folder.
 
-postProbThresh=0.5  ## [0.0 to 1.0] Posterior Prob. threshold; if mLDA method is used then the recommended value is 0.4 else the default 0.5 should be good enough; for higher stringency increase this threshold with 1.0 is maximum
+postProbThresh=0.5  		## [0.0 to 1.0] Posterior Prob. threshold; if mLDA method is used then the recommended value is 0.4 else the default 0.5 should be good enough; for higher stringency increase this threshold with 1.0 is maximum
 
-Findungated = True  ## Logical; if True then 'ungated' cells will be predicted. However, orignal sample ID (live cells) must be present in LiveFileinfo.
-		    ## if False then any of ungated cells will not be CALCULATED in training/testing (aka model generation);  though they will be identified/labelled in the validation/unlabelled dataset
-	            ## [False] if you already have ungated popluation (as FCS/CSV file(s)) and you dont want the program to re-calculate the ungated cells then set it to False.
+Findungated = True  		## Logical; if True then 'ungated' cells will be predicted. However, orignal sample ID (live cells) must be present in LiveFileinfo.
+		    		## if False then any of ungated cells will not be CALCULATED in training/testing (aka model generation);  though they will be identified/labelled in the validation/unlabelled dataset
+	            		## [False] if you already have ungated popluation (as FCS/CSV file(s)) and you dont want the program to re-calculate the ungated cells then set it to False.
 						
 normalizeCell=True 		## Logical; if yes arcsine transformation with cofactor will we used to normalize both the handgated and unlabelled cell expression files.
 
