@@ -4,17 +4,15 @@ CyAnno: A semi-automated approach for cell type annotation of mass cytometry dat
 CyAnno Getting Started Guide
 ===========================================
 
-Download and extract the appropriate CyAnno scripts and example data 
-from GitHub into a fresh directory. Change of the path of the working 
-directory to that directory and execute the CyAnno python script.
-
+Download and extract the appropriate CyAnno scripts from GitHub into a fresh directory. 
+Change of the path of the working directory to that directory and execute the CyAnno python script.
 
 
 Prerequisite
 ----------------------
 CyAnno does not require any installation and it can be executed from any working 
 directory with appropriate permissions. However, CyAnno uses Python 3.0 (or later),
-along with following mandatory python packages:
+along with the following mandatory python packages:
  numpy
  pandas
  scikit-learn
@@ -30,15 +28,13 @@ we recommend anaconda for python and library installation, as it comes with most
 
 Applications of CyAnno
 ---------------------------------
-CyAnno is especially useful for the large scale studies in which it can be used to 
-label the cell type of every single live cell (i.e. labelled). However, CyAnno needs training data to first
-learn the features/properties of each cell type, which can be done by training the CyAnno.
-For training, CyAnno requires handgated cell types as FCS/CSV files. Once it learns the features 
-of every single cell type, it can predict which cell belongs to what cell type in ungated FCS file (live cells).
-Here, only a few FCS files (live cells, e.g. from FlowJO) can be used for hand-gating 
-and CyAnno will label rest of the ungated live cell FCS files. 
-Note: CyAnno can be used to train and predict even one single cell type. There is no maximum limit.
+CyAnno is especially useful for large scale studies in which it can be used to label the cell type of 
+every single live cell. To do that, CyAnno needs training data to first learn the features/properties of each cell type.
+For this training, CyAnno requires handgated cell types as FCS or CSV files from only a small number of samples. 
+Once it learned the features of the provided cell types, it can predict which cells of an ungated FCS file (only 
+gated for live cells) belong to what cell type.
 
+Note: CyAnno can be used to train and predict even one single cell type. There is no maximum limit.
 
 
 Input files
@@ -48,25 +44,25 @@ CyAnno uses three inputs:
 2. Unlabelled data
 3. Marker names.
 
-~Labelled data (Training dataset): There are two files in training dataset:
+~Labelled data (Training dataset). Two files have to be provided:
 
-	*File 1: Handgated celltype
+	*File 1: Handgated celltypes
 	This is a three column CSV file in which:
-			column1: It contains path of handagted CSV/FCS file.
-			column2: It contains the name of handgated cell type, e.g. B-cell_memory. User can choose any name, however, it must be exactly same for all the training samples used.
+			column1: The path of the handagted CSV/FCS file.
+			column2: The name of the handgated cell type, e.g. B-cell_memory. User can choose any name, however, it must be exactly the same for all the training samples used.
 			column3: Identifier of the sample. Multiple cell types can have the same identifier, representing that they all belong to same live cell sample.
 	Note: The cell types must be mutually exclusive, i.e. there must not be parent cell type and child cell type together in the training dataset.
 
 
 	*File 2: Live cell information.
 	This is a two column CSV file in which:
-			column1: It contains path of live cell CSV/FCS file used for handgating.
-			column2: Identifier of the sample. This identifier must match with identifier used in column3 of File 1 (Handgated celltype).
+			column1: The path of the live cell CSV/FCS file used for handgating.
+			column2: Identifier of the sample. This identifier must match the identifier used in column3 of File 1 (Handgated celltype).
 Note: From each training sample, all the given cell types must be hand-gated.
 
-~Unlabelled data: Unlablled Live cells. This contains all the FCS/CSV files which are needed to be labelled.
+~Unlabeled data: Unlabeled Live cells. This contains all the FCS/CSV files which need to be labelled.
 This is a two column CSV file in which:
-		column1: It contains path of live cell CSV/FCS file.
+		column1: The path of the live cell CSV/FCS file.
 		column2: Identifier of the sample. Labelled output file will have this name as prefix.
 
 ~Marker names: this is the list of markers included for hand-gating, e.g. list of lineage markers.
@@ -77,15 +73,15 @@ For more information about input dataset, please see https://github.com/abbioinf
 
 Output file
 ----------------------------------
-In the output directory (see below), CyAnno will generate following files and folders:
-1. *_labled_expr.csv: These the labelled CSV file, in which, for each cell/row, last column contains 
-	the name of cell type predicted by CyAnno. Here, * is the identifier used in column 2 of Unlabelled data.
+In the output directory (see below), CyAnno will generate the following files and folders:
+1. *_labelled_expr.csv: These are the labeled CSV file, in which, for each cell/row, the last column contains 
+	the name of the cell type predicted by CyAnno. Here, * is the identifier used in column 2 of Unlabelled data.
 
 2. models_: Directory containing all the machine learning models generated by CyAnno for each cell type.
-3. others_: This contains all the input parameters, landmarks and settings under which models were generated.
+3. others_: This directory contains all the input parameters, landmarks and settings under which the models were generated.
 
-Note: models_ and others_ directories are saved as CyAnno session by default in the defined output direcyory. 
-	These are essential for reusing these these model to label more FCS/CSV file later (see below).
+Note: models_ and others_ directories are saved as CyAnno session by default in the defined output directory. 
+	These are essential for reusing these models to label more FCS/CSV files later (see below).
 
 
 
@@ -105,7 +101,7 @@ The example run, which includes Multi-Center dataset can be executed via CLI (pr
 ~Example dataset 2:Samusik dataset
 
 The following project allows you to download and process the Samusik dataset (10 samples) from Public domain in a format required by CyAnno. 
-Total three training samples were used and cell label prediction is performed on remaining seven samples.
+Total three training samples are used and cell label prediction is performed on the remaining seven samples.
 
 		git clone https://github.com/abbioinfo/CyAnnoSamusik.git
 		cd CyAnnoSamusik
@@ -116,56 +112,55 @@ Total three training samples were used and cell label prediction is performed on
 
 Usage: Running your own dataset
 -----------------------------------
-All the parameters discussed so far can be put within CyAnno.py file. Open this python script in any text editor (e.g. nano or gedit). 
+All parameters discussed so far need to be set within the CyAnno.py file. Open this python script in any text editor (e.g. nano or gedit). 
 In the editor, change the values of the argument of your choice. These arguments are defined as:
 
 
 ##### Mandatory ######
 handgatedFileinfo='example/Handgated.csv' 		## [Mandatory] hand-gated cells to be used for training
-LiveFileinfo= 'example/LivecellsTraining.csv'    	## [Mandatory] All Live cells of the samples used for handgating (i.e. training); these samples will also be labelled
-unlabelledDataset= 'example/Livecells.csv'    		## [Mandatory] All Live cells to be tested for annotation, i.e. for cell type identification
+LiveFileinfo= 'example/LivecellsTraining.csv'    	## [Mandatory] All Live cells of the samples used for handgating (i.e. training)
+unlabelledDataset= 'example/Livecells.csv'    		## [Mandatory] All Live cells to be used for annotation, i.e. for cell type identification
 relevantMarkers = ["0","1","2","3","4","5","6","7"] 	## [Mandatory] lineage markers used for hand-gated; based on column names in FCS/CSV file  
-outdir = 'MultCent' 					## [Mandatory when loadModel=False] any name of choice. If directory will hold saved session and labelled CSV file (*_labeld_expr.csv).
-loadSession = '' 					## [optional; valid only when loadModel=True] if user wants to reuse the previously built models/training then, put the name of directory having all the session files.
-
+outdir = 'MultCent' 					## [Mandatory when loadModel=False] user-defined directory name. After successfull execution of CyAnno, this directory would have session files (i.e models_ and others_) and labelled CSV file (*_labelled_expr.csv).
+loadSession = '' 					## [optional; valid only when loadModel=True] if the user wants to reuse the previously built models/training, the name of directory having all the session files needs to be provided here.
 
 
 ######### Optional #######
 threads = 20 			## (Int) number of available threads to use; set it to -1 if all available threads are to be used
 
-method = 'x'  			## e= ensemble (XGboost+MLP+SVM) ; x = XGboost ; m=Multi-layer-perceptron ; l = multi-LDA; b = best model from x/m/l for each cell type (may use diffferent model for different cell type )
+method = 'x'  			## e= ensemble (XGboost+MLP+SVM) ; x = XGboost ; m=Multi-layer-perceptron ; l = multi-LDA; b = best model from x/m/l for each cell type (may use different model for different cell types)
 
-loadModel = False  		## When you are using previously generated model you need to change this to 'True' and in the next parameter set the path of the CyAnno generated output folder.
+loadModel = False  		## When using previously generated models, this needs to be changed to 'True' and the path of the CyAnno generated output folder needs to be set in the loadSession parameter.
 
-postProbThresh=0.5  		## [0.0 to 1.0] Posterior Prob. threshold; if mLDA method is used then the recommended value is 0.4 else the default 0.5 should be good enough; for higher stringency increase this threshold with 1.0 is maximum
+postProbThresh=0.5  		## [0.0 to 1.0] Posterior Prob. threshold; if mLDA method is used then the recommended value is 0.4 else the default 0.5 should be appropriate; for higher stringency increase this threshold (maximum is 1.0)
 
-Findungated = True  		## Logical; if True then 'ungated' cells will be predicted. However, orignal sample ID (live cells) must be present in LiveFileinfo.
-		    		## if False then any of ungated cells will not be CALCULATED in training/testing (aka model generation);  though they will be identified/labelled in the validation/unlabelled dataset
-	            		## [False] if you already have ungated popluation (as FCS/CSV file(s)) and you dont want the program to re-calculate the ungated cells then set it to False.
+Findungated = True  		## Logical; if True then 'ungated' cells will be predicted. However, original sample ID (live cells) must be present in LiveFileinfo.
+		    		## if False then any of ungated cells will not be CALCULATED in training/testing (aka model generation);  though they will still be identified/labelled in the unlabeled dataset.
+	            		## [False] if you already have ungated population (as FCS/CSV file(s)) and you don’t want the program to re-calculate the ungated cells then set it to False.
+## Note: In most cases, this should remain set to True. If user already have them in training dataset, Ungated cells will not predicted for those samples.
 						
-normalizeCell=True 		## Logical; if yes arcsine transformation with cofactor will we used to normalize both the handgated and unlabelled cell expression files.
+normalizeCell=True 		## Logical; if True arcsine transformation with cofactor (set in next parameter) will we used to normalize both the hand-gated and unlabeled cell expression files.
 
 cofactor=5.0 			## valid only when normalizecell == True; this is the cofactor for arcsin transformation of raw expression values.
 
 header = 'infer' 		## 'infer' or 'None' ; does all the input csv files (LiveFileinfo, unlabelledDataset and handgatedFileinfo) contain header. infer means 'yes' otherwise its None.
 
-nlandMarks = 10 		## number of landmarks cells you need from each cell type. [feault 10] good enough for most studies; higher values means nore neighbouring cells; improves training but reduce execution speed.
+nlandMarks = 10 		## number of landmarks cells you need from each cell type. [default 10] good enough for most studies; higher value means more neighbouring cells; improves training but reduce execution speed.
 
-cellCount = 20			## Minimum number of cells that should be present in the entire training dataset.
+cellCount = 20			## For a given cell type, the minimum number of cells that should be present in the entire training dataset.
 
-index_col = False 		## [False or 0; when CSV used instead of FCS] rownames in Marker expression csv file to be considered or not ; 0 means first column to use for rowname else use False; if you known that first column is marker expression value then set this to False
+index_col = False 		## [False or 0; when CSV used instead of FCS] rownames in Marker expression csv file to be considered or not ; 0 means first column will be used for rowname else use False; if the first column contains marker expression values then set this to False
 
+Warning: When using loadModel=True and loadSession='[path of directory with sessions]', any *_labeld_expr.csv file with the same name will be overwritten. Make sure to backup these files.
 
-Warning: When using loadModel=True and loadSession='[path of directory with sessions]', any *_labeld_expr.csv file with same name will be replaced. Make sure to backup these files.
-
-For more infor please refer the wiki page of https://github.com/abbioinfo/CyAnno
+For more info please refer to the wiki page of https://github.com/abbioinfo/CyAnno
 
 
 
 Important considerations
 ---------------------------------------
-live cells both unlabelled and labelled, as well as the handgated cells must have either raw values or normalized on same scale (e.g. bead normalized).
-example: if bead normalization is used before gating out live cells then that be done for all the FCS files (labelled/unlabelled).
+Live cells, from both unlabeled and labelled datasets, as well as the hand-gated cells must have either raw values or normalized on same scale (e.g. bead normalized).
+Example: if bead normalization is used before gating live cells then that needs to be done for all the FCS files (labeled/unlabeled).
 Also, after hand-gating cell types, these datasets must not be subjected to additional normalization. If your values are raw or bead normalized, then
 we recommend setting normalizeCell=True which will use cofactor=5.0 (set for CyTOF) for arcsine transformation of all the files used in CyAnno.
 
@@ -174,12 +169,12 @@ we recommend setting normalizeCell=True which will use cofactor=5.0 (set for CyT
 
 Saving session and reusing the models
 ----------------------------------------
-Once CyAnno is trained successfully, the output directory ('outdir' argument) contains all the essential models and setting. 
-To label a new set of FCS/CSV unlabelled live cells using the already saved models (to save time), simply edit the CyAnno.py 
-and create a new Unlabelled data (argument: 'unlabelledDataset') and set the path of session directory ('loadSession' argument) 
+Once CyAnno is trained successfully, the output directory ('outdir' argument) contains all the essential models and settings. 
+To label a new set of FCS/CSV unlabeled live cells using the already saved models, simply edit the CyAnno.py 
+and create a new Unlabeled data (argument: 'unlabelledDataset') and set the path of session directory ('loadSession' argument) 
 as directory having the saved session (i.e. models_ and others_ directory).   
 
-Warning: Make sure to backup all the *_labeld_expr.csv files in session directory, before reusing the session.
+Warning: Make sure to backup all the *_labelled_expr.csv files in the session directory, before reusing the session, since they will be overwritten.
 
 
 
