@@ -21,9 +21,9 @@ CyAnno (*Cy*ToF *Anno*tator) is a novel semi-automated Machine Learning (ML) bas
 It essentially requires three inputs:
 1. **Training dataset**: 
   
-  a.) [Hand-gated] List of FCS/CSV file(s), each representing a cell type manually gated from clean pool of live cells (non-debris; non-doublets). At least one FCS file per cell type is mandatory. The choice of samples selected for manually gating is important. We recommend the inclusion of at least one sample from each batch or stimulation used in the study, to keep the overall training unbiased for any given batch or stimulation.
+  a.) **[Hand-gated]** List of FCS/CSV file(s), each representing a cell type manually gated from clean pool of live cells (non-debris; non-doublets). At least one FCS file per cell type is mandatory. The choice of samples selected for manually gating is important. We recommend the inclusion of at least one sample from each batch or stimulation used in the study, to keep the overall training unbiased for any given batch or stimulation.
   
-  b.) [All live cells] List of orignal FCS/CSV file(s) with all the live cells that were used for manual gating the cell types. The algorithm uses these cells to find out cells that are not  part of any of the gated cell type, i.e. 'ungated' cells (only if Findungated=True).
+  b.) **[All live cells]** List of orignal FCS/CSV file(s) with all the live cells that were used for manual gating the cell types. The algorithm uses these cells to find out cells that are not  part of any of the gated cell type, i.e. 'ungated' cells (only if Findungated=True).
   
 2. **Unlabelled dataset**: List of FCS/CSV file(s) that are required to be labelled. These are the CyTOF samples (clean live cells: non-debris; non-doublets etc) for which you need to predict cell labels from one of the gated cell types.
 
@@ -47,9 +47,11 @@ This contains the table of CSV/FCS files which were used for manual gating, i.e.
 
 Column 1: Path of FCS/CSV file with live cells (non-debris; non-doublets).
 
-Column 2: Identifier of the training sample. In case, this sample is also used for manual gating to generate training dataset, the identifier must match with column 3 of [Hand-gated] training dataset.
+Column 2: Identifier of the training sample. Since, the sample is also used for manual gating to generate training dataset, the identifier must match with one of the identifier in column 3 of [Hand-gated] training dataset, indicating the name of hand-gated FCS files it is contributing.
 
 Example file can be found in **_example/LivecellsTraining.csv_**
+
+Note: Each Training sample must be used to hand-gate all the cell types under consideration. 
 
 ### Unlabelled dataset
 This contains the list of CSV/FCS files in which every cell has to be annotated. The format is same as [All live cells]. This is a two column csv file:
