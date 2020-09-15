@@ -122,7 +122,7 @@ LiveFileinfo= 'example/LivecellsTraining.csv'    	## [Mandatory] All Live cells 
 unlabelledDataset= 'example/Livecells.csv'    		## [Mandatory] All Live cells to be used for annotation, i.e. for cell type identification
 relevantMarkers = ["0","1","2","3","4","5","6","7"] 	## [Mandatory] lineage markers used for hand-gated; based on column names in FCS/CSV file  
 outdir = 'MultCent' 					## [Mandatory when loadModel=False] user-defined directory name. After successfull execution of CyAnno, this directory would have session files (i.e models_ and others_) and labelled CSV file (*_labelled_expr.csv).
-loadSession = '' 					## [optional; valid only when loadModel=True] if the user wants to reuse the previously built models/training, the name of directory having all the session files needs to be provided here.
+loadSession = '' 					## [optional; Mandatory when loadModel=True] if the user wants to reuse the previously built models/training, the name of directory having all the session files needs to be provided here.
 
 
 ######### Optional #######
