@@ -14,9 +14,10 @@ CyAnno (*Cy*ToF *Anno*tator) is a novel semi-automated Machine Learning (ML) bas
 **Other important considerations**
 1. CyAnno is _not_ an alterative of unsupervised clustering, rather it learns the features of manually gated and mutually exclusive cell types from few samples and predicts the similar cells from the pool of live cells using FCS file(s).
 2. Cell types must be mutually exclusive and both parent and child gated cell types can _not_ be used together for cell type prediction.
-3. The prediction accuracy of the algorithm may depend upon the choice of training set, and we recommend the inclusion of samples processed under different batches or stimulation for training the models, to keep the overall training unbiased for any given batch or stimulation. 
-4. CyAnno prediction accuracy has not been tested on samples with strong stimulation that can lead to aberrant marker expression profile.
-5. Other factor that can affect the prediction accuracy includes the ambiguity in marker expression profile of different cell types.
+3. Each training sample must export all the given cell types. 
+4. The prediction accuracy of the algorithm may depend upon the choice of training set, and we recommend the inclusion of samples processed under different batches or stimulation for training the models, to keep the overall training unbiased for any given batch or stimulation. 
+5. CyAnno prediction accuracy has not been tested on samples with strong stimulation that can lead to aberrant marker expression profile.
+6. Other factor that can affect the prediction accuracy includes the ambiguity in marker expression profile of different cell types.
 
 # Installation and dependencies
 CyAnno does not require any installation and can be executed with Command Line Interface (CLI). However, python (3.0 or above) is required with numpy, pandas, scikit-learn, [faiss](https://github.com/facebookresearch/faiss/blob/master/INSTALL.md "CPU version") (CPU version), scipy, [xgboost](https://anaconda.org/conda-forge/xgboost), [pickle](https://docs.python.org/3/library/pickle.html), [fcsparser](https://github.com/eyurtsev/fcsparser) and itertools libraries. For convinience, we recommend [anaconda](https://anaconda.org/anaconda/python) for python and library installation, as it comes with most of the libraries preloaded. 
