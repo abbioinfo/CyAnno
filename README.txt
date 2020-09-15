@@ -153,7 +153,7 @@ nlandMarks = 10 		## number of landmarks cells you need from each cell type. [fe
 
 cellCount = 20			## Minimum number of cells that should be present in the entire training dataset.
 
-index_col = False 		## [For CSV only; False or 0] rownames in Marker expression csv file to be considered or not ; 0 means first column to use for rowname else use False; if you known that first column is marker expression value then set this to False
+index_col = False 		## [False or 0; when CSV used instead of FCS] rownames in Marker expression csv file to be considered or not ; 0 means first column to use for rowname else use False; if you known that first column is marker expression value then set this to False
 
 
 Warning: When using loadModel=True and loadSession='[path of directory with sessions]', any *_labeld_expr.csv file with same name will be replaced. Make sure to backup these files.
