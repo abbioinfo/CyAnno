@@ -29,8 +29,6 @@ header = 'infer' 		## 'infer' or 'None' ; does all the input csv files (LiveFile
 nlandMarks = 10 		## number of landmarks cells you need from each cell type. [feault 10] good enough for most studies; higher values means nore neighbouring cells; improves training but reduce execution speed 
 cellCount = 20			## Minimum number of cells that should be present in the entire training dataset.
 index_col = False 		## [For CSV only; False or 0] rownames in Marker expression csv file to be considered or not ; 0 means first column to use for rowname else use False; if you known that first column is marker expression value then set this to False
-calcPvalue = False 		## [True/False] [Slow] if you want to calculate p-value of F1 score by randonly permuting the cell labels and rechecking F1 score by comparing with orignal F1 score over 1000 interations  
-LandmarkPlots = False	## scatter plots that shows where are high density cells ; estimated using kernel density estimation; only for developers and for debugging.
 
 
 
@@ -39,6 +37,7 @@ LandmarkPlots = False	## scatter plots that shows where are high density cells ;
 ########################### Do Not Edit ######################################
 ##############################################################################
 plotlogLoss = False
+calcPvalue = False 
 train = None ## when loadmodel = True then obviously you dont need train object again ; all the models will be loaded as selfobject later on in the script 
 if not loadModel: ## if you are not loading previously build model from ProjectName
     ProjectName = outdir
