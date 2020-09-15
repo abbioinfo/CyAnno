@@ -1,4 +1,7 @@
+#####################################################################################
 CyAnno: A semi-automated approach for cell type annotation of mass cytometry datasets
+Version 1.0
+#####################################################################################
 
 
 CyAnno Getting Started Guide
