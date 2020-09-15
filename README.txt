@@ -121,12 +121,12 @@ In the editor, change the values of the argument of your choice. These arguments
 
 
 ##### Mandatory ######
-handgatedFileinfo='example/Handgated.csv' 			## [Mandatory] hand-gated cells to be used for training
+handgatedFileinfo='example/Handgated.csv' 		## [Mandatory] hand-gated cells to be used for training
 LiveFileinfo= 'example/LivecellsTraining.csv'    	## [Mandatory] All Live cells of the samples used for handgating (i.e. training); these samples will also be labelled
 unlabelledDataset= 'example/Livecells.csv'    		## [Mandatory] All Live cells to be tested for annotation, i.e. for cell type identification
-relevantMarkers = ["0","1","2","3","4","5","6","7"] ## [Mandatory] lineage markers used for hand-gated; based on column names in FCS/CSV file  
-outdir = 'MultCent' 								## [Mandatory when loadModel=False] any name of choice. If directory will hold saved session and labelled CSV file (*_labeld_expr.csv).
-loadSession = '' 									## [optional; valid only when loadModel=True] if user wants to reuse the previously built models/training then, put the name of directory having all the session files.
+relevantMarkers = ["0","1","2","3","4","5","6","7"] 	## [Mandatory] lineage markers used for hand-gated; based on column names in FCS/CSV file  
+outdir = 'MultCent' 					## [Mandatory when loadModel=False] any name of choice. If directory will hold saved session and labelled CSV file (*_labeld_expr.csv).
+loadSession = '' 					## [optional; valid only when loadModel=True] if user wants to reuse the previously built models/training then, put the name of directory having all the session files.
 
 
 
