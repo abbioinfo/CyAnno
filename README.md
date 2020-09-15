@@ -6,9 +6,10 @@ CyAnno (*Cy*ToF *Anno*tator) is a novel semi-automated Machine Learning (ML) bas
 
 **Applications**
 1. CyAnno is especially designed to analyze large scale immunological studies to predict cell labels of closely related (but mutually exclusive) cell types, after manually gating only a few samples.
-2. CyAnno performed exceptionally good in the identification of rare cells or cell types which are very small in terms of population size.
-3. CyAnno can be used to train and predict even a single cell type, irrespective of its population size. This unique feature of CyAnno can be useful for a broad range of studies; e.g. when only one (or few) cell types are of clinical interest, especially those rare cell types that cannot be clustered with unsupervised clustering. 
-4. CyAnno can be used for cell label prediction of 'gated' cell type even in the datasets with more than 20 cell types, including closely related cell types. 
+2. CyAnno is especially useful for the large scale studies in which it can be used to label the cell type of every single live cell (i.e. labelled dataset). However, CyAnno needs training data to first learn the features/properties of each cell type, which can be done by training the CyAnno. For training, CyAnno requires handgated cell types as FCS/CSV files. Once it learns the features of every single cell type, it can predict which cell belongs to what cell type in ungated FCS file (live cells). Here, only a few FCS files (live cells, e.g. from FlowJO) can be used for hand-gating and CyAnno will label rest of the ungated live cell FCS files. 
+3. CyAnno can be used to train and predict even a single cell type, irrespective of its population size. This unique feature of CyAnno can be useful for a broad range of studies; e.g. when only one (or few) cell types are of clinical interest, especially those rare cell types that cannot be clustered with unsupervised clustering.
+4. CyAnno performed exceptionally good in the identification of rare cells or cell types which are very small in terms of population size.
+5. CyAnno can be used for cell label prediction of 'gated' cell type even in the datasets with more than 20 cell types, including closely related cell types. 
 
 **Other important considerations**
 1. CyAnno is _not_ an alterative of unsupervised clustering, rather it learns the features of manually gated and mutually exclusive cell types from few samples and predicts the similar cells from the pool of live cells using FCS file(s).
