@@ -98,7 +98,7 @@ python CyAnno.py
 Details can be found [here](https://github.com/abbioinfo/CyAnnoSamusik)
 
 # Step-by-Step instruction
-The complete details of all the CyAnno parameters and input/output file formats are available in wiki page.
+The complete details for running the CyAnno along with the different parameters and input/output file formats are available in wiki page.
 
 # Result Reproduction
 All the results and images from the orignal research article can be reproduced using these instructions.
