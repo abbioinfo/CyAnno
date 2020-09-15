@@ -1,4 +1,4 @@
-fpath,cell_type,sample_id
+fpath,cell_type,sample_ID
 example/ManualGated/sample1_Bcells.csv,B_cells,sample1
 example/ManualGated/sample1_CD4Tcells.csv,CD4_Tcells,sample1
 example/ManualGated/sample1_CD8Tcells.csv,CD8_Tcells,sample1
