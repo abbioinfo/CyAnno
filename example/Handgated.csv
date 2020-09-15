@@ -18,4 +18,4 @@ example/ManualGated/sample12_Bcells.csv,B_cells,sample12
 example/ManualGated/sample12_CD4Tcells.csv,CD4_Tcells,sample12
 example/ManualGated/sample12_CD8Tcells.csv,CD8_Tcells,sample12
 example/ManualGated/sample12_Monocytes.csv,Monocytes,sample12
-example/ManualGated/sample12_ungated.csv,Unknown,sample12
+example/ManualGated/sample12_ungated.csv,Unknown,sample12 
