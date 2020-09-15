@@ -13,7 +13,7 @@ directory to that directory and execute the CyAnno python script.
 Prerequisite
 ----------------------
 CyAnno does not require any installation and it can be executed from any working 
-directory with write permissions. However, CyAnno uses Python 3.0 (or later),
+directory with appropriate permissions. However, CyAnno uses Python 3.0 (or later),
 along with following mandatory python packages:
  numpy
  pandas
