@@ -163,10 +163,10 @@ For more infor please refer the wiki page of https://github.com/abbioinfo/CyAnno
 
 Important considerations
 ---------------------------------------
-live cells both unlabelled andlabelled, as well as handgated cells must have either raw values or normalized on same scale (e.g. bead normalized).
+live cells both unlabelled and labelled, as well as the handgated cells must have either raw values or normalized on same scale (e.g. bead normalized).
 example: if bead normalization is used before gating out live cells then that be done for all the FCS files (labelled/unlabelled).
 Also, after hand-gating cell types, these datasets must not be subjected to additional normalization. If your values are raw or bead normalized, then
-we recommend to set normalizeCell=True which will use cofactor=5.0 (set for CyTOF) for arcsine transformation of all the files used in CyAnno.
+we recommend setting normalizeCell=True which will use cofactor=5.0 (set for CyTOF) for arcsine transformation of all the files used in CyAnno.
 
 
 
@@ -174,7 +174,7 @@ we recommend to set normalizeCell=True which will use cofactor=5.0 (set for CyTO
 Saving session and reusing the models
 ----------------------------------------
 
-Once CyAnno is trained successufully, the output directory ('outdir' argument) contains all the essential models and setting. 
+Once CyAnno is trained successfully, the output directory ('outdir' argument) contains all the essential models and setting. 
 To label a new set of FCS/CSV unlabelled live cells using the already saved models (to save time), simply edit the CyAnno.py 
 and create a new Unlabelled data (argument: 'unlabelledDataset') and set the path of session directory ('loadSession' argument) 
 as directory having the saved session (i.e. models_ and others_ directory).   
