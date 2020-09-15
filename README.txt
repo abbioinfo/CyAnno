@@ -174,7 +174,6 @@ we recommend setting normalizeCell=True which will use cofactor=5.0 (set for CyT
 
 Saving session and reusing the models
 ----------------------------------------
-
 Once CyAnno is trained successfully, the output directory ('outdir' argument) contains all the essential models and setting. 
 To label a new set of FCS/CSV unlabelled live cells using the already saved models (to save time), simply edit the CyAnno.py 
 and create a new Unlabelled data (argument: 'unlabelledDataset') and set the path of session directory ('loadSession' argument) 
