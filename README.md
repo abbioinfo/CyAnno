@@ -51,7 +51,7 @@ This contains the table of CSV/FCS files which were used for manual gating, i.e.
 
 Example file can be found in **_example/LivecellsTraining.csv_**
 
-Note: Each Training sample must be used to hand-gate all the cell types under consideration. 
+Note: Each Training sample must be hand-gated to generate all the cell types under consideration. 
 
 ### Unlabelled dataset
 This contains the list of CSV/FCS files in which every cell has to be annotated. The format is same as [All live cells]. This is a two column csv file:
