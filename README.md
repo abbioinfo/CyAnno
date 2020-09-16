@@ -30,6 +30,10 @@ All the required parameters and arguments, including path to the input files can
 python CyAnno.py
 ```
 
+# Step-by-Step instructions
+The complete user guide with all the details for running the CyAnno along with the different parameters and input/output file formats are available in [wiki page](https://github.com/abbioinfo/CyAnno/wiki/CyAnno).
+
+
 # Example
 ### Multi-center dataset
 The example run, which includes Multi-Center dataset can be executed via CLI (provided all prerequisite libraries are installed):
@@ -49,9 +53,6 @@ Rscript Process.R
 python CyAnno.py
 ```
 Details can be found [here](https://github.com/abbioinfo/CyAnnoSamusik)
-
-# Step-by-Step instructions
-The complete user guide with all the details for running the CyAnno along with the different parameters and input/output file formats are available in [wiki page](https://github.com/abbioinfo/CyAnno/wiki/CyAnno).
 
 # Results reproduction
 All the results and images from publicly available dataset in the orignal research article can be reproduced using these instructions.
