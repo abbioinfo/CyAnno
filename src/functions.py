@@ -1538,7 +1538,7 @@ def CelltypePredPerSample(expr,SelfObject,relevantMarkers,indx2ct,origLabels,Unk
         #recall = recall_score(origLabels2,predictedLabels2, average='micro')
         #result2 = printACC(indx2ct, origLabels2, predictedLabels2, sampleID, F1, precision, recall, "Without_UnGated")
         #result = pa.concat([result,result2], axis=0)
-        annotatedExpression = pa.concat([expr, pa.DataFrame(predictedLabels, columns=["labels"], index=expr.index), pa.DataFrame(origLabels.values, columns=["Truelabels"], index=expr.index)], axis=1)
+        annotatedExpression = pa.concat([expr, pa.DataFrame(predictedLabels, columns=["Predictedlabels"], index=expr.index)], axis=1)
         len(predictedLabels)
         name = str(ProjectName) + "/" + str(sampleID) + '_labelled_expr.csv'
         print("Writing file.." + name)
