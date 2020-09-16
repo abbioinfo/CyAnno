@@ -34,7 +34,7 @@ python CyAnno.py
 The complete user guide with all the details for running the CyAnno along with the different parameters and input/output file formats are available in [wiki page](https://github.com/abbioinfo/CyAnno/wiki/CyAnno).
 
 
-# Example
+# Running example
 ### Multi-center dataset
 The example run, which includes Multi-Center dataset can be executed via CLI (provided all prerequisite libraries are installed):
 ```
