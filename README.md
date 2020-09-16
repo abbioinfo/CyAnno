@@ -54,9 +54,6 @@ python CyAnno.py
 ```
 Details can be found [here](https://github.com/abbioinfo/CyAnnoSamusik)
 
-# Results reproduction
-All the results and images from publicly available dataset in the orignal research article can be reproduced using these instructions.
-
 # Cite
 If you use CyAnno for your research. Please [cite](https://www.biorxiv.org/content/10.1101/2020.08.28.272559v1)
 
