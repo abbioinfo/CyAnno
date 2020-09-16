@@ -70,7 +70,7 @@ This is a two column CSV file in which:
 
 ~Marker names: this is the list of markers included for hand-gating, e.g. list of lineage markers.
 
-For more information about input dataset, please see https://github.com/abbioinfo/CyAnno
+For more information about input dataset, please see https://github.com/abbioinfo/CyAnno/wiki/CyAnno
 
 
 
@@ -153,6 +153,9 @@ nlandMarks = 10 		## number of landmarks cells you need from each cell type. [de
 cellCount = 20			## For a given cell type, the minimum number of cells that should be present in the entire training dataset.
 
 index_col = False 		## [False or 0; when CSV used instead of FCS] rownames in Marker expression csv file to be considered or not ; 0 means first column will be used for rowname else use False; if the first column contains marker expression values then set this to False
+
+
+Note: please use quotes, wherever applicable. 
 
 Warning: When using loadModel=True and loadSession='[path of directory with sessions]', any *_labeld_expr.csv file with the same name will be overwritten. Make sure to backup these files.
 
