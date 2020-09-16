@@ -171,6 +171,15 @@ Also, after hand-gating cell types, these datasets must not be subjected to addi
 we recommend setting normalizeCell=True which will use cofactor=5.0 (set for CyTOF) for arcsine transformation of all the files used in CyAnno.
 
 
+Execution Time
+---------------------------------------
+Execution time depends upon Method used for training the cell type model. For ensemble method (='e') execution time can reach upto an hour per cell type .
+For faster execution, we recommend XGboost method (='x') which usually takes few minutes for training the model. However, the overall execution time also
+depends upon:
+* Number of threads used
+* Size of the training dataset
+* Number of cell types. 
+
 
 
 Saving session and reusing the models
