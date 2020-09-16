@@ -37,7 +37,8 @@ index_col = False 		## [For CSV only; False or 0] rownames in Marker expression 
 ########################### Do Not Edit ######################################
 ##############################################################################
 plotlogLoss = False
-calcPvalue = False 
+calcPvalue = False
+LandmarkPlots = False
 train = None ## when loadmodel = True then obviously you dont need train object again ; all the models will be loaded as selfobject later on in the script 
 if not loadModel: ## if you are not loading previously build model from ProjectName
     ProjectName = outdir
