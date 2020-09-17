@@ -20,7 +20,28 @@ CyAnno (*Cy*ToF *Anno*tator) is a novel semi-automated Machine Learning (ML) bas
 6. Other factor that can affect the prediction accuracy includes the ambiguity in marker expression profile of different cell types.
 
 # Installation and dependencies
-CyAnno does not require any installation and can be executed with Command Line Interface (CLI). However, python (3.0 or above) is required with numpy, pandas, scikit-learn, [faiss](https://github.com/facebookresearch/faiss/blob/master/INSTALL.md "CPU version") (CPU version), scipy, [xgboost](https://anaconda.org/conda-forge/xgboost), [pickle](https://docs.python.org/3/library/pickle.html), [fcsparser](https://github.com/eyurtsev/fcsparser) and itertools libraries. For convinience, we recommend [anaconda](https://anaconda.org/anaconda/python) for python and library installation, as it comes with most of the libraries preloaded. 
+CyAnno does not require any installation and can be executed with Command Line Interface (CLI). However, python (3.6 or above) is required with following packages:
+
+```
+Session information
+-------------
+package             version
+-------------
+numpy               1.18.1
+pandas              0.25.3
+sklearn             0.20.1
+faiss(CPU version)  1.5.1
+scipy               1.4.1
+xgboost             0.90
+pickle
+fcsparser           0.2.0          
+-------------
+Python 3.7.1 (default, Dec 14 2018, 13:28:58) [Clang 4.0.1 (tags/RELEASE_401/final)]
+Darwin-18.7.0-x86_64-i386-64bit
+4 logical CPU cores, i386
+-------------
+```
+For convinience, we recommend [anaconda](https://anaconda.org/anaconda/python) for python and library installation, as it comes with most of the libraries preloaded. 
 
 # Usage 
 
