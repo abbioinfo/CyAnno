@@ -63,6 +63,7 @@ git clone https://github.com/abbioinfo/CyAnno.git
 cd CyAnno
 python CyAnno.py
 ```
+The expected output of the above code is available [here](https://github.com/abbioinfo/ExpectedOutputs/tree/master/Multi_center_Expected_output).
 
 ### Samusik dataset
 The following project allows you to download and process the Samusik dataset (10 samples) from Public domain in a format required by CyAnno. Total three training samples are used and cell label prediction is performed on remaining seven samples.
