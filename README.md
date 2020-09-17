@@ -12,7 +12,7 @@ CyAnno (*Cy*ToF *Anno*tator) is a novel semi-automated Machine Learning (ML) bas
 5. CyAnno can be used for cell label prediction of 'gated' cell type even in the datasets with more than 20 cell types, including closely related cell types. 
 
 **Other important considerations**
-1. CyAnno is _not_ an alterative of unsupervised clustering, rather it learns the features of manually gated and mutually exclusive cell types from few training samples and predicts the similar cells from live cells from unlabelled FCS file(s).
+1. CyAnno is _not_ an alterative of unsupervised clustering, rather it learns the features of manually gated and mutually exclusive cell types from few training samples and predicts the cell type of live cells from unlabelled FCS file(s).
 2. Cell types must be mutually exclusive and both parent and child gated cell types can _not_ be used together for cell type prediction.
 3. Each training sample must export all the given cell types. 
 4. The prediction accuracy of the algorithm may depend upon the choice of training set, and we recommend the inclusion of samples processed under different batches or stimulation for training the models, to keep the overall training unbiased for any given batch or stimulation. 
