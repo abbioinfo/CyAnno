@@ -57,7 +57,7 @@ The complete user guide with all the details for running the CyAnno along with t
 
 # Running example
 ### Multi-center dataset
-The example run, which includes Multi-Center dataset can be executed via CLI (provided all prerequisite libraries are installed):
+An example utilizing the Multi-Center dataset can be executed via CLI (provided all prerequisite libraries are installed):
 ```
 git clone https://github.com/abbioinfo/CyAnno.git
 cd CyAnno
@@ -65,7 +65,7 @@ python CyAnno.py
 ```
 
 ### Samusik dataset
-The following project allows you to download and process the Samusik dataset (10 samples) from Public domain in a format required by CyAnno. Total three training samples were used and cell label prediction is performed on remaining seven samples.
+The following project allows you to download and process the Samusik dataset (10 samples) from Public domain in a format required by CyAnno. Total three training samples are used and cell label prediction is performed on remaining seven samples.
 
 ```
 git clone https://github.com/abbioinfo/CyAnnoSamusik.git
