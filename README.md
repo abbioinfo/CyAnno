@@ -34,7 +34,8 @@ faiss(CPU version)  1.5.1
 scipy               1.4.1
 xgboost             0.90
 pickle
-fcsparser           0.2.0          
+fcsparser           0.2.0  
+joblib              0.13.0
 -------------
 Python 3.7.1 (default, Dec 14 2018, 13:28:58) [Clang 4.0.1 (tags/RELEASE_401/final)]
 Darwin-18.7.0-x86_64-i386-64bit
