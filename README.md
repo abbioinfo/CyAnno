@@ -13,11 +13,12 @@ CyAnno (*Cy*ToF *Anno*tator) is a novel semi-automated Machine Learning (ML) bas
 
 **Other important considerations**
 1. CyAnno is _not_ an alterative of unsupervised clustering, rather it learns the features of manually gated and mutually exclusive cell types from few training samples and predicts the cell type(s) of live cells from unlabelled FCS file(s).
-2. Cell types must be mutually exclusive and both parent and child gated cell types can _not_ be used together for cell type prediction.
-3. For each training sample all the given cell types must be hand-gated and exported. 
-4. The prediction accuracy of the algorithm may depend upon the choice of training set, and we recommend the inclusion of samples processed under different batches or stimulation for training the models, to keep the overall training unbiased for any given batch or stimulation. 
-5. CyAnno prediction accuracy has not been tested on samples with strong stimulation that can lead to aberrant marker expression profile.
-6. Another factor that can affect the prediction accuracy includes the ambiguity in marker expression profile of different cell types.
+2. To identify novel cell subet, we recommend "unsupervised" clustering. However, cell subset predicted by "unsupervised" clustering can be used as training dataset to predicted those clusters in unlabelled live cells. To do so, provide one or more CSV file for each cluster (predicted by unsupervised clustering; instead of handgated cell subset) as training dataset.
+3. Cell types must be mutually exclusive and both parent and child gated cell types can _not_ be used together for cell type prediction.
+4. For each training sample all the given cell types must be hand-gated and exported. 
+5. The prediction accuracy of the algorithm may depend upon the choice of training set, and we recommend the inclusion of samples processed under different batches or stimulation for training the models, to keep the overall training unbiased for any given batch or stimulation. 
+6. CyAnno prediction accuracy has not been tested on samples with strong stimulation that can lead to aberrant marker expression profile.
+7. Another factor that can affect the prediction accuracy includes the ambiguity in marker expression profile of different cell types.
 
 # Installation and dependencies
 CyAnno does not require any installation and can be executed with Command Line Interface (CLI). However, python (3.6 or above) is required with following packages:
