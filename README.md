@@ -78,6 +78,22 @@ python CyAnno.py
 ```
 Details can be found [here](https://github.com/abbioinfo/CyAnnoSamusik)
 
+### POISED dataset
+The detailed Step-by-step guide to process POISED dataset is available [here](https://github.com/abbioinfo/runPOISED). Briefly, the following set of codes allows execute CyAnno on POISED dataset and compute F1 score of each sample and cell type, as published in orignal article.
+
+```
+pip install gdown ## or conda install -c conda-forge gdown
+git clone https://github.com/abbioinfo/runPOISED.git
+cd runPOISED
+python Download.py
+python CyAnno.py
+Rscript plot.py [PATH TO POISED PROJECT DIRECTORY]
+
+```
+
+For details please follow step-by-step instruction [here](https://github.com/abbioinfo/runPOISED). 
+
+
 # Cite
 If you use CyAnno for your research. Please [cite](https://www.biorxiv.org/content/10.1101/2020.08.28.272559v1)
 
