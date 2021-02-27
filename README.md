@@ -76,7 +76,7 @@ cd CyAnnoSamusik
 Rscript Process.R
 python CyAnno.py
 ```
-Details can be found [here](https://github.com/abbioinfo/CyAnnoSamusik)
+You can find all the F1 score and accuracy table (as reported in the orignal article) as file **Method_x__Acc_stats.csv** within the output directory 'SAMUSIK_XXXXXXX'. Details can be found [here](https://github.com/abbioinfo/CyAnnoSamusik)
 
 ### POISED dataset
 The detailed step-by-step guide to process POISED dataset is available [here](https://github.com/abbioinfo/runPOISED). Briefly, the following set of codes allows you to download POISED dataset, execute CyAnno and compute F1 score of each sample and cell type, as published in the orignal article.
