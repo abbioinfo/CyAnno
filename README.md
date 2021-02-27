@@ -75,7 +75,7 @@ git clone https://github.com/abbioinfo/CyAnnoSamusik.git
 cd CyAnnoSamusik
 Rscript Process.R
 python CyAnno.py
-Rscript plot.R [PATH TO SAMUSIK OUTPUT DIRECTORY]
+Rscript plotsamusik.R  PATH_TO_SAMUSIK_OUPUT_DIRECTORY
 ```
 You can find all the F1 score and accuracy table (as reported in the orignal article) as file **Method_x__Acc_stats.csv** within the output directory 'SAMUSIK_XXXXXXX' created by CyAnno. Details can be found [here](https://github.com/abbioinfo/CyAnnoSamusik)
 
