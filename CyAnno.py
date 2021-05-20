@@ -9,7 +9,7 @@ handgatedFileinfo='example/Handgated.csv' 		## [Mandatory] hand-gated cells to b
 LiveFileinfo= 'example/LivecellsTraining.csv'    	## [Mandatory] All Live cells of the samples used for handgating (i.e. training); these samples will also be labelled
 unlabelledDataset= 'example/Livecells.csv'    		## [Mandatory] All Live cells to be tested for annotation, i.e. for cell type identification
 relevantMarkers = ["0","1","2","3","4","5","6","7"] 	## [Mandatory] lineage markers used for hand-gated; based on column names in FCS/CSV file  
-outdir = 'MultCent' 					## Mandatory when loadModel=False] any name of choice. If directory will hold saved session and labelled CSV file.	
+outdir = 'MultCent' 					##  Mandatory when loadModel=False] any name of choice. If directory will hold saved session and labelled CSV file.	
 loadSession = '' 					## [optional; valid only when loadModel=True]  if user wants to reuse the previously built models/training then, put the name of directory having all the session files.
 
 
